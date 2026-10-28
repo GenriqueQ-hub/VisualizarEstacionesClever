@@ -1,0 +1,51 @@
+
+:root {
+  /* Colores corporativos */
+  --color-principal: #DA2128;
+  --color-principal-hover: #B91C22;
+  --color-principal-claro: #FCE8E9;
+
+  /* Fondos */
+  --color-fondo: #F3F4F6;
+  --color-superficie: #FFFFFF;
+  --color-navbar: #FFFFFF;
+
+  /* Textos */
+  --color-texto: #222222;
+  --color-texto-secundario: #666666;
+  --color-texto-inverso: #FFFFFF;
+
+  /* Bordes y estados */
+  --color-borde: #D9D9D9;
+  --color-exito: #237A45;
+  --color-error: #B91C1C;
+
+  /* Sombras */
+  --sombra-tarjeta: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  margin: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-principal);
+  outline-offset: 2px;
+}
