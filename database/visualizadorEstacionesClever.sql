@@ -78,3 +78,41 @@ VALUES
     ('Consulta', 'Consulta la información autorizada.');
 GO
 
+
+/* Registro de errores*/
+CREATE TABLE dbo.LogsErrores
+(
+    IdLog INT IDENTITY(1,1) PRIMARY KEY,
+    IdUsuario INT NULL,
+    DetalleError NVARCHAR(MAX) NOT NULL,
+    Modulo NVARCHAR(100) NOT NULL,
+
+    FechaHora DATETIME2(0) NOT NULL
+        CONSTRAINT DF_LogsErrores_FechaHora
+        DEFAULT SYSDATETIME(),
+
+    CONSTRAINT FK_LogsErrores_Usuarios
+        FOREIGN KEY (IdUsuario)
+        REFERENCES dbo.Usuarios(IdUsuario)
+);
+
+CREATE INDEX IX_LogsErrores_FechaHora
+ON dbo.LogsErrores(FechaHora);
+
+
+/************************************/
+/*modificaciones*/
+
+USE [VisualizadorEstacionesClever];
+GO
+
+ALTER TABLE dbo.Usuarios
+ADD UsuarioAD NVARCHAR(150) NULL;
+GO
+
+CREATE UNIQUE INDEX UX_Usuarios_UsuarioAD
+ON dbo.Usuarios(UsuarioAD)
+WHERE UsuarioAD IS NOT NULL;
+GO
+
+execute sp_helpindex 'dbo.Usuarios';

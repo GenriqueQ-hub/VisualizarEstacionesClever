@@ -33,3 +33,33 @@ dist-ssr
 # Archivos de respaldo
 *.bak
 *.tmp
+
+# Archivos generados por .NET
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Publicaciones y compilaciones
+**/publish/
+**/TestResults/
+
+# Configuración local sensible
+appsettings.Development.json
+appsettings.Local.json
+
+# Certificados y claves privadas
+*.pfx
+*.p12
+*.key
+
+# Configuración privada de ASP.NET Core
+**/appsettings.json
+**/appsettings.Development.json
+**/appsettings.Local.json
+
+# Permitir plantillas sin información sensible
+!**/appsettings.example.json
